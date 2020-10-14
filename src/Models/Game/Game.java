@@ -2,14 +2,13 @@ package Models.Game;
 
 import Models.Request.Response;
 
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Game {
     private int gameID;
     private ArrayList<Bin> bins = new ArrayList<>();
-    private HashMap<Integer, Socket> socketHashMap = new HashMap<>();
+    private HashMap<Integer, Integer> connectionHashMap = new HashMap<>();
     private ArrayList<Bin> freeBins = new ArrayList<>();
     private ArrayList<PlayerData> players = new ArrayList<>();
     private HashMap<Integer, PlayerData> playersID = new HashMap<>();
@@ -21,21 +20,21 @@ public class Game {
         return gameID;
     }
 
-    public HashMap<Integer, Socket> getSocketHashMap() {
-        return socketHashMap;
+    public HashMap<Integer, Integer> getSocketHashMap() {
+        return connectionHashMap;
     }
 
-    public void addSocket(Integer playerID, Socket socket) {
-        socketHashMap.put(playerID, socket);
+    public void addSocket(Integer playerID, int connection_id) {
+        connectionHashMap.put(playerID, connection_id);
     }
 
     public void removeSocket(Integer playerID) {
-        socketHashMap.remove(playerID);
+        connectionHashMap.remove(playerID);
     }
 
 
-    public void setSocketHashMap(HashMap<Integer, Socket> socketHashMap) {
-        this.socketHashMap = socketHashMap;
+    public void setSocketHashMap(HashMap<Integer, Integer> connectionHashMap) {
+        this.connectionHashMap = connectionHashMap;
     }
 
     public void setGameID(int gameID) {

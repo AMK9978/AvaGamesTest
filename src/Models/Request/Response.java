@@ -16,6 +16,7 @@ public class Response<T> {
     public static final int ERROR_NO_BIN = 107;
     public static final int ERROR_LOGOUT = 108;
     public static final int EXIT = 109;
+    public static final int COOL_DOWN_TIME_OVER = 110;
 
     private Response(T data, int message, Status status) {
         this.data = data;
